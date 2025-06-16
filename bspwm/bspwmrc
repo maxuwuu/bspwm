@@ -10,7 +10,7 @@ sxhkd &
 xrandr --output Virtual1 --mode 1920x1080 &
 picom --experimental-backends &
 polybar main  &
-feh --bg-scale ~/Walls/Light/hills.png  &
+#feh --bg-scale ~/Wallpepers-/Light/hills.png  &
 
 # App autostart
 nm-applet &
