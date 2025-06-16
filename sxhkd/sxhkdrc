@@ -1,0 +1,76 @@
+# Mod tuşu = Alt
+# Terminal
+alt + Return
+	konsole
+
+# Program launcher
+alt + d
+	rofi -show drun -show-icons
+
+# Çeşitli uygulamalar
+alt + shift + f
+	firefox
+alt + shift + d
+	thunar
+alt + shift + w
+	vlc
+alt + shift + s
+	shutter
+alt + shift + x
+	~/.config/i3/i3lock/lock
+alt + shift + z
+	bspc quit
+
+# Odaklanma yönleri
+alt + {j,k,l,g}
+	bspc node -f {west,south,north,east}
+alt + {Left,Down,Up,Right}
+	bspc node -f {west,south,north,east}
+
+# Taşıma
+alt + shift + {j,k,l,g}
+	bspc node -s {west,south,north,east}
+alt + shift + {Left,Down,Up,Right}
+	bspc node -s {west,south,north,east}
+
+# Pencereyi kapat
+alt + shift + q
+	bspc node -c
+
+# Split yönü
+alt + h
+	bspc node split horizontal
+alt + v
+	bspc node split vertical
+
+# Fullscreen
+alt + f
+	bspc node -t ~fullscreen; bspc node -l fullscreen
+
+# Floating toggle
+alt + shift + space
+	bspc node -t ~floating
+
+# focus mode toggle ≈ alt + space
+alt + space
+	bspc node -f biggest.local
+
+# Workspace geçiş
+alt + {1-9,0}
+	bspc desktop -f {1,2,3,4,5,6,7,8,9,10}
+alt + shift + {1-9,0}
+	bspc node -d {1,2,3,4,5,6,7,8,9,10}
+
+# Ses kontrolü
+XF86AudioRaiseVolume
+	pactl set-sink-volume @DEFAULT_SINK@ +10%
+XF86AudioLowerVolume
+	pactl set-sink-volume @DEFAULT_SINK@ -10%
+XF86AudioMute
+	pactl set-sink-mute @DEFAULT_SINK@ toggle
+XF86AudioMicMute
+	pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+# Yeniden başlat (sxhkd)
+alt + shift + r
+	pkill -USR1 -x sxhkd

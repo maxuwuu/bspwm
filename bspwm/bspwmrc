@@ -1,0 +1,30 @@
+#!/bin/sh
+
+# Monitors and desktops 
+bspc monitor -d 1 2 
+
+# start sxhkd 
+sxhkd &
+
+# Wallpeper
+xrandr --output Virtual1 --mode 1920x1080 &
+picom --experimental-backends &
+polybar main  &
+feh --bg-scale ~/Walls/Light/hills.png  &
+
+# App autostart
+nm-applet &
+dex --autostart --environment bspwm &
+xss-lock --transfer-sleep-lock -- i3lock --nofork &
+
+# settings
+bspc config border_width         5
+bspc config window_gap           15
+bspc config split_ratio          0.5
+bspc config single_monocle       true
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+bspc config focus_follows_pointer true
+
+#Floating
+#bspc rule -a Xfce4-terminal state=floating
